@@ -5,12 +5,13 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Nikolaj Storm Petersen</title>
     <link href="https://fonts.googleapis.com/css2?family=Caveat:wght@400&display=swap" rel="stylesheet">
-    <script src="https://cdn.tailwindcss.com"></script>
     <script src="https://unpkg.com/gsap@3.12.5/dist/gsap.min.js"></script>
     <script src="https://unpkg.com/gsap@3.12.5/dist/ScrollTrigger.min.js"></script>
     <script src="https://unpkg.com/lenis@1.0.45/dist/lenis.min.js"></script>
+    <!-- Add core Three.js library -->
     <script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r128/three.min.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/three@0.128.0/examples/js/controls/OrbitControls.min.js"></script>
+    <script src="https://cdn.tailwindcss.com"></script>
     <style>
         :root {
             --color-bg: #000000;
@@ -34,14 +35,12 @@
             overflow: hidden;
         }
 
-        /* Terminal-like styling */
         body {
             font-family: 'Courier New', monospace;
             background-color: var(--color-bg);
             color: var(--color-text);
         }
 
-        /* Custom scrollbar */
         ::-webkit-scrollbar {
             width: 2px;
             height: 2px;
@@ -56,7 +55,6 @@
             border-radius: 1px;
         }
 
-        /* Blinking cursor effect */
         @keyframes blink {
             0%, 100% { opacity: 1; }
             50% { opacity: 0; }
@@ -65,7 +63,6 @@
             animation: blink 1s step-end infinite;
         }
 
-        /* Glitch effect */
         @keyframes glitch {
             0% { text-shadow: none; }
             25% { text-shadow: -2px 0 #fff, 2px 0 #000; }
@@ -74,7 +71,6 @@
             100% { text-shadow: 2px 0 #000, -2px 0 #fff; }
         }
         
-        /* Animations */
         @keyframes float {
             0%, 100% { transform: translateY(0); }
             50% { transform: translateY(-10px); }
@@ -84,7 +80,6 @@
             animation: float 3s ease-in-out infinite;
         }
         
-        /* Custom classes */
         .text-stroke {
             -webkit-text-stroke: 1px var(--color-accent);
             color: transparent;
@@ -106,7 +101,6 @@
             transition: transform .5s;
         }
 
-        /* 3D Button Styles for Spherical Button */
         .btn-container {
             position: relative;
             width: 150px;
@@ -177,7 +171,6 @@
             100% { transform: translateY(0) scale(1); }
         }
 
-        /* Bouncing Bubble Styles */
         .bubble {
             width: 120px;
             height: 120px;
@@ -191,7 +184,6 @@
             transition: opacity 0.3s ease;
         }
 
-        /* 3D Buttons for view_projects, contact_me, read_thoughts */
         .button-3d {
             position: relative;
             width: 160px;
@@ -248,7 +240,6 @@
             transform: rotateX(90deg) translateZ(20px);
         }
 
-        /* Dinosaur Intro Styles */
         #intro {
             position: fixed;
             top: 0;
@@ -309,10 +300,72 @@
             from { left: -20%; }
             to   { left: 120%; }
         }
+
+        /* Consulting Package Styles */
+        .consulting-package {
+            background: #fff;
+            padding: 2rem;
+            border-radius: 1rem;
+            text-align: center;
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+            position: relative;
+            overflow: hidden;
+            cursor: pointer;
+        }
+
+        .consulting-package:hover {
+            transform: scale(1.05) translateY(-10px);
+            box-shadow: 0 0 20px rgba(255, 215, 0, 0.5), 0 0 10px rgba(255, 215, 0, 0.3) inset;
+        }
+
+        .consulting-package::before {
+            content: '';
+            position: absolute;
+            top: -50%;
+            left: -50%;
+            width: 200%;
+            height: 200%;
+            background: radial-gradient(circle, rgba(255, 215, 0, 0.2) 0%, transparent 70%);
+            animation: glow 4s infinite alternate;
+            z-index: 0;
+        }
+
+        .consulting-package > * {
+            position: relative;
+            z-index: 1;
+        }
+
+        @keyframes glow {
+            0% { transform: translate(0, 0); }
+            100% { transform: translate(20%, 20%); }
+        }
+
+        .consulting-package h3 {
+            font-size: 1.5rem;
+            font-weight: bold;
+            margin-bottom: 0.5rem;
+            color: #000;
+        }
+
+        .consulting-package p {
+            color: #666;
+            margin-bottom: 1rem;
+        }
+
+        .consulting-package .price {
+            font-size: 1.25rem;
+            font-weight: bold;
+            color: #ff4500;
+            margin-bottom: 0.25rem;
+        }
+
+        .consulting-package .details {
+            color: #888;
+            font-size: 0.875rem;
+        }
     </style>
 </head>
 <body class="antialiased relative overflow-hidden intro-active">
-    <!-- Dinosaur Intro -->
     <div id="intro">
         <div id="counter">0%</div>
         <div id="dino">
@@ -326,7 +379,6 @@
         </div>
     </div>
 
-    <!-- Centered word with 3D button -->
     <section class="min-h-screen flex items-center justify-center relative">
         <div class="flex items-center space-x-8">
             <h1 class="text-8xl font-bold text-white hero-title">
@@ -340,7 +392,6 @@
         </div>
     </section>
 
-    <!-- Floating 2D objects and Bouncing Bubble -->
     <div id="floating-objects" class="fixed inset-0 pointer-events-none">
         <div class="absolute w-32 h-32 rounded-full bg-[var(--color-secondary)] opacity-10 blur-sm"></div>
         <div class="absolute w-48 h-48 rounded-lg bg-[var(--color-secondary)] opacity-5 blur-sm"></div>
@@ -349,12 +400,10 @@
         <div class="bubble" id="bubble"></div>
     </div>
 
-    <!-- Progress Bar -->
     <div class="fixed top-0 left-0 right-0 h-1 z-50 bg-transparent">
         <div id="progress-bar" class="h-full bg-[var(--color-accent)]" style="width: 0%"></div>
     </div>
 
-    <!-- Navigation -->
     <nav id="navbar" class="fixed top-0 left-0 right-0 z-40 py-4 px-6 lg:px-12 transition-all duration-300">
         <div class="flex justify-between items-center">
             <div></div>
@@ -373,7 +422,6 @@
                 </svg>
             </button>
         </div>
-        <!-- Dropdown Menu -->
         <div id="dropdown-menu" class="hidden lg:hidden bg-[#111] mt-2 rounded-lg shadow-lg">
             <div class="flex flex-col items-center py-4 space-y-4">
                 <a href="#home" class="text-lg hover:text-[var(--color-accent)] transition-all duration-200">Home</a>
@@ -385,10 +433,6 @@
         </div>
     </nav>
 
-    <!-- 3D Background Canvas -->
-    <div id="canvas-container" class="fixed inset-0 -z-10 opacity-20 pointer-events-none"></div>
-
-    <!-- About Me Section -->
     <section id="about" class="min-h-screen flex flex-col items-center justify-center px-4 lg:px-0 relative overflow-hidden">
         <div class="relative z-10 max-w-4xl mx-auto p-8 bg-black bg-opacity-70 backdrop-blur-sm rounded-lg">
             <h1 class="text-4xl lg:text-6xl font-mono font-bold mb-8 text-[var(--color-accent)]">
@@ -403,13 +447,13 @@
                 </p>
                 <p class="text-[var(--color-text)]">
                     <span class="text-[var(--color-secondary)]">//</span> LET ME ENTERTAIN YOU FOR A SEC ___/ ͘/
-                    <br>  ͘  ͘  ͘  ͘  ͘  ͘  ͘  ͘  ͘  ͘  ͘  ͘   ͘  ͘  ͘            /.o  ͘o.\  ͘  ͘
-                    <br>  ͘  ͘  ͘  ͘  ͘  ͘  ͘  ͘  ͘  ͘  ͘  ͘   ͘  ͘  ͘ \ ͘ ▽  ͘/ ͘  ͘  ͘ 
-                    <br>  ͘  ͘  ͘  ͘  ͘  ͘  ͘  ͘  ͘  ͘  ͘  ͘  ȑ ___/ ͘  ͘  ͘ \ ͘  ͘  ͘ 
-                    <br>  ͘  ͘  ͘  ͘  ͘  ͘  ͘  ͘  ͘  ͘  ͘  ͘   ͘   \ -- ; ͘   ͘  ) ͘  ͘  ͘ 
-                    <br>  ͘  ͘  ͘  ͘  ͘  ͘  ͘  ͘  ͘  ͘  ͘  ͘   ͘ ͘  \________/ ͘  ͘  ͘ 
+                    <br>  ͘  ͘  ͘  ͘  ͘  ͘  ͘  ͘  ͘  ͘   ͘  ͘  ͘            /.o  ͘o.\  ͘  ͘
+                    <br>  ͘  ͘  ͘  ͘  ͘  ͘  ͘  ͘  ͘  ͘   ͘  ͘  ͘ \ ͘ ▽  ͘/ ͘  ͘  ͘ 
+                    <br>  ͘  ͘  ͘  ͘  ͘  ͘  ͘  ͘  ͘  ͘  ͘  ȑ ___/ ͘  ͘  ͘ \ ͘  ͘  ͘ 
+                    <br>  ͘  ͘  ͘  ͘  ͘  ͘  ͘  ͘  ͘  ͘  ͘   ͘   \ -- ; ͘   ͘  ) ͘  ͘  ͘ 
+                    <br>  ͘  ͘  ͘  ͘  ͘  ͘  ͘  ͘  ͘  ͘  ͘   ͘ ͘  \________/ ͘  ͘  ͘ 
                     <br> ________________________________|___|_______ 
-                    <br>  ͘  ͘  ͘  ͘  ͘  ͘  ͘  ͘  ͘  ͘  ͘  ͘   ͘  ͘   "  ͘  " ͘  ͘  ͘  ͘  ͘ 
+                    <br>  ͘  ͘  ͘  ͘  ͘  ͘  ͘  ͘  ͘  ͘  ͘   ͘  ͘   "  ͘  " ͘  ͘  ͘ 
                 </p>
                 <p class="text-[var(--color-text)]">
                     <span class="text-[var(--color-secondary)]">//</span> __//
@@ -434,6 +478,12 @@
                     <span>> read_thoughts</span>
                     <span>> read_thoughts</span>
                 </a>
+                <a href="#consulting" class="button-3d">
+                    <span>> consult_services</span>
+                    <span>> consult_services</span>
+                    <span>> consult_services</span>
+                    <span>> consult_services</span>
+                </a>
             </div>
         </div>
         <div class="max-w-6xl mx-auto mt-12">
@@ -454,13 +504,11 @@
         </div>
     </section>
 
-    <!-- Featured Projects Section -->
     <section id="projects" class="py-20 px-6 lg:px-12">
         <div class="max-w-6xl mx-auto">
             <h2 class="text-4xl lg:text-6xl font-bold mb-16 text-center">Featured Project</h2>
             <div class="projects-container relative h-[600px] overflow-hidden">
                 <div class="projects-scroller absolute top-0 left-0 h-full flex nowrap space-x-8">
-                    <!-- Project: Donna AI -->
                     <div class="project-card w-[80vw] lg:w-[50vw] h-full flex-shrink-0 bg-[#111] rounded-xl overflow-hidden relative group">
                         <div class="absolute inset-0 bg-gradient-to-t from-[var(--color-bg)] to-transparent z-10 opacity-80"></div>
                         <img src="https://images.unsplash.com/photo-1580587771525-78b9dba3b914?ixlib=rb-4.0.3&auto=format&fit=crop&w=1470&q=80" 
@@ -488,12 +536,10 @@
         </div>
     </section>
 
-    <!-- Blog Section -->
     <section id="blog" class="py-20 px-6 lg:px-12">
         <div class="blog-section max-w-3xl mx-auto">
             <h2 class="text-4xl font-bold mb-16 text-center">Some Thoughts</h2>
             <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
-                <!-- Blog post 1 -->
                 <div class="blog-card bg-[#111] rounded-lg overflow-hidden">
                     <div class="h-48 overflow-hidden">
                         <img src="https://images.unsplash.com/photo-1499750310107-5fef28a66643?ixlib=rb-4.0.3&auto=format&fit=crop&w=1470&q=80" 
@@ -510,7 +556,6 @@
                         <a href="#" class="text-[var(--color-accent)] font-medium hover:underline">Read More →</a>
                     </div>
                 </div>
-                <!-- Blog post 2 -->
                 <div class="blog-card bg-[#111] rounded-lg overflow-hidden">
                     <div class="h-48 overflow-hidden">
                         <img src="https://images.unsplash.com/photo-1555066931-4365d14bab8c?ixlib=rb-4.0.3&auto=format&fit=crop&w=1470&q=80" 
@@ -527,7 +572,6 @@
                         <a href="#" class="text-[var(--color-accent)] font-medium hover:underline">Read More →</a>
                     </div>
                 </div>
-                <!-- Blog post 3 -->
                 <div class="blog-card bg-[#111] rounded-lg overflow-hidden">
                     <div class="h-48 overflow-hidden">
                         <img src="https://images.unsplash.com/photo-1547658719-da2b51169166?ixlib=rb-4.0.3&auto=format&fit=crop&w=1528&q=80" 
@@ -551,7 +595,6 @@
         </div>
     </section>
 
-    <!-- About Section -->
     <section id="about" class="py-20 px-6 lg:px-12">
         <div class="max-w-6xl mx-auto">
             <h2 class="text-4xl lg:text-6xl font-bold mb-16 text-center">About Me</h2>
@@ -578,30 +621,29 @@
         </div>
     </section>
 
-    <!-- Consulting Section -->
     <section id="consulting" class="py-20 px-6 lg:px-12">
         <div class="max-w-4xl mx-auto">
             <h2 class="text-4xl font-bold mb-8 text-center">Consulting Services</h2>
             <p class="text-xl text-center mb-12 text-gray-400">Expert advice on cybersecurity, system architecture, or secure development practices</p>
-            <div class="grid grid-cols-1 md:grid-cols-3 gap-3 mb-12">
-                <div class="bg-white p-6">
-                    <h3 class="text-2xl font-bold mb-2">Security Audit</h3>
-                    <p class="text-gray-600 mb-4">Comprehensive security assessment</p>
-                    <span class="text-lg font-bold text-orange-600">$500</span>
-                    <p class="text-sm">60 min call + written report</p>
-                </div>
-                <div class="bg-white p-6">
-                    <h3 class="text-2xl font-bold mb-2">Architecture Review</h3>
-                    <p class="text-gray-600 mb-4">Design review</p>
-                    <p class="text-lg font-bold text-orange-600">$750</p>
-                    <p class="text-sm">90 min call + recommendations</p>
-                </div>
-                <div class="bg-white p-6">
-                    <h3 class="text-2xl font-bold">Custom Consultation</h3>
-                    <p class="text-gray-600 mb-4">Tailored to your specific needs</p>
-                    <span class="text-lg text-orange-600">$200/hr</span>
-                    <p class="text-sm">Flexible duration</p>
-                </div>
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-6 mb-12">
+                <a href="https://example.com/security-audit" class="consulting-package">
+                    <h3>Security Audit</h3>
+                    <p>Comprehensive security assessment</p>
+                    <div class="price">$500</div>
+                    <div class="details">60 min call + written report</div>
+                </a>
+                <a href="https://example.com/architecture-review" class="consulting-package">
+                    <h3>Architecture Review</h3>
+                    <p>Design review</p>
+                    <div class="price">$750</div>
+                    <div class="details">90 min call + recommendations</div>
+                </a>
+                <a href="https://example.com/custom-consultation" class="consulting-package">
+                    <h3>Custom Consultation</h3>
+                    <p>Tailored to your specific needs</p>
+                    <div class="price">$200/hr</div>
+                    <div class="details">Flexible duration</div>
+                </a>
             </div>
             <div class="text-center">
                 <a href="#" class="inline-block px-6 py-2 bg-orange-600 text-white font-medium rounded hover:bg-orange-700 mr-4">Book via Calendly</a>
@@ -610,7 +652,6 @@
         </div>
     </section>
 
-    <!-- Contact Section -->
     <section id="contact" class="py-20 px-6 lg:px-12">
         <div class="max-w-4xl mx-auto">
             <h2 class="text-4xl lg:text-6xl font-bold mb-16 text-center">Get In Touch</h2>
@@ -644,28 +685,6 @@
                             <span>+1 (555) 123-4567</span>
                         </div>
                     </div>
-                    <div class="mt-8 flex space-x-4">
-                        <a href="#" class="w-10 h-10 bg-[#222] rounded-full flex items-center justify-center hover:bg-[var(--color-accent)] transition-all duration-200">
-                            <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-                                <path d="M18 2h-3a5 5 0 0 0-5 5v3H7v4h3v8h4v-8h3l1-4h-4V7a1 1 0 0 1 1-1h3z"></path>
-                            </svg>
-                        </a>
-                        <a href="#" class="w-10 h-10 bg-[#222] rounded-full flex items-center justify-center hover:bg-[var(--color-accent)] transition-all duration-200">
-                            <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-                                <path d="M23 3a10.9 10.9 0 0 1-3.14 1.53 4.48 4.48 0 0 0-7.86 3v1A10.66 10.66 0 0 1 3 4s-4 9 5 13a11.64 11.64 0 0 1-7 2c9 5 20 0 20-11.5a4.5 4.5 0 0 0-.08-.83A7.72 7.72 0 0 0 23 3z"></path>
-                            </svg>
-                        </a>
-                        <a href="#" class="w-10 h-10 bg-[#222] rounded-full flex items-center justify-center hover:bg-[var(--color-accent)] transition-all duration-200">
-                            <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-                                <rect x="2" y="2" width="20" height="20" rx="5" ry="5"></rect><path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"></path><line x1="17.5" y1="6.5" x2="17.51" y2="6.5"></line>
-                            </svg>
-                        </a>
-                        <a href="#" class="w-10 h-10 bg-[#222] rounded-full flex items-center justify-center hover:bg-[var(--color-accent)] transition-all duration-200">
-                            <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-                                <path d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-2-2 2 2 0 0 0-2 2v7h-4v-7a6 6 0 0 1 6-6z"></path><rect x="2" y="9" width="4" height="12"></rect><circle cx="4" cy="4" r="2"></circle>
-                            </svg>
-                        </a>
-                    </div>
                 </div>
                 <div>
                     <div class="space-y-6">
@@ -688,99 +707,7 @@
         </div>
     </section>
 
-    <!-- Footer -->
-    <footer class="py-12 px-6 lg:px-12 bg-[var(--color-bg)] border-t border-[#222]" style="z-index: 1000;">
-        <div class="max-w-6xl mx-auto">
-            <div class="flex flex-col md:flex-row justify-between items-center">
-                <div class="mb-6 md:mb-0">
-                    <a href="#" class="text-2xl font-bold text-[var(--color-accent)]">PORTFOLIO</a>
-                </div>
-                <div class="flex space-x-6 mb-6 md:mb-0">
-                    <a href="#home" class="hover:text-[var(--color-accent)] transition-all duration-200">Home</a>
-                    <a href="#projects" class="hover:text-[var(--color-accent)] transition-all duration-200">Projects</a>
-                    <a href="#blog" class="hover:text-[var(--color-accent)] transition-all duration-200">Blog</a>
-                    <a href="#about" class="hover:text-[var(--color-accent)] transition-all duration-200">About</a>
-                    <a href="#contact" class="hover:text-[var(--color-accent)] transition-all duration-200">Contact</a>
-                </div>
-                <div class="flex space-x-4">
-                    <a href="#" class="w-10 h-10 bg-[#111] rounded-full flex items-center justify-center hover:bg-[var(--color-accent)] transition-all duration-200">
-                        <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-                            <path d="M18 2h-3a5 5 0 0 0-5 5v3H7v4h3v8h4v-8h3l1-4h-4V7a1 1 0 0 1 1-1h3z"></path>
-                        </svg>
-                    </a>
-                    <a href="#" class="w-10 h-10 bg-[#111] rounded-full flex items-center justify-center hover:bg-[var(--color-accent)] transition-all duration-200">
-                        <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-                            <path d="M23 3a10.9 10.9 0 0 1-3.14 1.53 4.48 4.48 0 0 0-7.86 3v1A10.66 10.66 0 0 1 3 4s-4 9 5 13a11.64 11.64 0 0 1-7 2c9 5 20 0 20-11.5a4.5 4.5 0 0 0-.08-.83A7.72 7.72 0 0 0 23 3z"></path>
-                        </svg>
-                    </a>
-                    <a href="#" class="w-10 h-10 bg-[#111] rounded-full flex items-center justify-center hover:bg-[var(--color-accent)] transition-all duration-200">
-                        <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-                            <rect x="2" y="2" width="20" height="20" rx="5" ry="5"></rect><path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"></path><line x1="17.5" y1="6.5" x2="17.51" y2="6.5"></line>
-                        </svg>
-                    </a>
-                    <a href="#" class="w-10 h-10 bg-[#111] rounded-full flex items-center justify-center hover:bg-[var(--color-accent)] transition-all duration-200">
-                        <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-                            <path d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-2-2 2 2 0 0 0-2 2v7h-4v-7a6 6 0 0 1 6-6z"></path><rect x="2" y="9" width="4" height="12"></rect><circle cx="4" cy="4" r="2"></circle>
-                        </svg>
-                    </a>
-                </div>
-            </div>
-            <div class="mt-12 pt-8 border-t border-[#222] text-center text-gray-500">
-                <p>© 2023 Pixel Portfolio. All rights reserved.</p>
-            </div>
-        </div>
-    </footer>
-
     <script>
-        // Initialize Three.js scene for background
-        const container = document.getElementById('canvas-container');
-        const scene = new THREE.Scene();
-        const camera = new THREE.PerspectiveCamera(75, window.innerWidth / window.innerHeight, 0.1, 1000);
-        const renderer = new THREE.WebGLRenderer({ alpha: true, antialias: true });
-        renderer.setSize(window.innerWidth, window.innerHeight);
-        container.appendChild(renderer.domElement);
-
-        // Add floating 3D gray shapes for background
-        const geometry = new THREE.IcosahedronGeometry(1, 0);
-        const material = new THREE.MeshBasicMaterial({ 
-            color: 0x333333,
-            wireframe: true,
-            transparent: true,
-            opacity: 0.3
-        });
-
-        const objects = [];
-        for (let i = 0; i < 15; i++) {
-            const mesh = new THREE.Mesh(geometry, material);
-            mesh.position.x = Math.random() * 20 - 10;
-            mesh.position.y = Math.random() * 20 - 10;
-            mesh.position.z = Math.random() * 20 - 10;
-            mesh.scale.setScalar(Math.random() * 0.5 + 0.5);
-            scene.add(mesh);
-            objects.push(mesh);
-        }
-
-        camera.position.z = 5;
-
-        // Animation loop for background
-        function animateBackground() {
-            requestAnimationFrame(animateBackground);
-            const scrollY = window.scrollY;
-            objects.forEach((obj, i) => {
-                obj.rotation.x = scrollY * 0.0002 * (i + 1);
-                obj.rotation.y = scrollY * 0.0003 * (i + 1);
-                obj.position.y = Math.sin(Date.now() * 0.001 + i) * 2;
-            });
-            renderer.render(scene, camera);
-        }
-
-        // Handle window resize for background
-        window.addEventListener('resize', () => {
-            camera.aspect = window.innerWidth / window.innerHeight;
-            camera.updateProjectionMatrix();
-            renderer.setSize(window.innerWidth, window.innerHeight);
-        });
-
         // 3D Spherical Button
         const particleField = document.getElementById('particleField');
         for (let i = 0; i < 50; i++) {
@@ -1058,8 +985,6 @@
                 setTimeout(() => {
                     intro.remove();
                     document.body.classList.remove('intro-active');
-                    // Start portfolio animations after intro
-                    animateBackground();
                     gsap.to('.char', {
                         y: 0,
                         stagger: 0.05,
