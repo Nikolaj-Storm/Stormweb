@@ -283,7 +283,7 @@
             left: -20%;
             width: 30vw;
             max-width: 300px;
-            animation: runAcross 5610ms linear forwards;
+            animation: runAcross 2805ms linear forwards;
             font-size: 20px;
             line-height: 1;
             color: var(--white);
@@ -301,7 +301,6 @@
             to   { left: 120%; }
         }
 
-        /* Consulting Package Styles */
         .consulting-package {
             background: #fff;
             padding: 2rem;
@@ -315,7 +314,7 @@
 
         .consulting-package:hover {
             transform: scale(1.05) translateY(-10px);
-            box-shadow: 0 0 20px rgba(255, 215, 0, 0.5), 0 0 10px rgba(255, 215, 0, 0.3) inset;
+            box-shadow: 0 0 20px rgba(255, 255, 255, 0.5), 0 0 10px rgba(255, 255, 255, 0.3) inset;
         }
 
         .consulting-package::before {
@@ -325,7 +324,7 @@
             left: -50%;
             width: 200%;
             height: 200%;
-            background: radial-gradient(circle, rgba(255, 215, 0, 0.2) 0%, transparent 70%);
+            background: radial-gradient(circle, rgba(255, 255, 255, 0.2) 0%, transparent 70%);
             animation: glow 4s infinite alternate;
             z-index: 0;
         }
@@ -380,10 +379,7 @@
     </div>
 
     <section class="min-h-screen flex items-center justify-center relative">
-        <div class="flex items-center space-x-8">
-            <h1 class="text-8xl font-bold text-white hero-title">
-                <span class="char">N</span><span class="char">i</span><span class="char">k</span><span class="char">o</span><span class="char">l</span><span class="char">a</span><span class="char">j</span>
-            </h1>
+        <div class="flex items-center justify-center">
             <div class="btn-container" id="btnContainer">
                 <canvas id="sphereCanvas"></canvas>
                 <div class="particles-field" id="particleField"></div>
@@ -433,82 +429,11 @@
         </div>
     </nav>
 
-    <section id="about" class="min-h-screen flex flex-col items-center justify-center px-4 lg:px-0 relative overflow-hidden">
-        <div class="relative z-10 max-w-4xl mx-auto p-8 bg-black bg-opacity-70 backdrop-blur-sm rounded-lg">
-            <h1 class="text-4xl lg:text-6xl font-mono font-bold mb-8 text-[var(--color-accent)]">
-                >_ HI_THERE
-            </h1>
-            <div class="font-mono space-y-6 text-lg">
-                <p class="text-[var(--color-text)]">
-                    <span class="text-[var(--color-secondary)]">//</span> LOOKS LIKE YOU MIGHT HAVE LOST YOUR WAY ON THE INTERWEBS 
-                </p>
-                <p class="text-[var(--color-text)]">
-                    <span class="text-[var(--color-secondary)]">//</span> ANYWAY, I'M NIKOLAJ STORM PETERSEN, AND THIS IS MY PAGE
-                </p>
-                <p class="text-[var(--color-text)]">
-                    <span class="text-[var(--color-secondary)]">//</span> LET ME ENTERTAIN YOU FOR A SEC ___/ ͘/
-                    <br>  ͘  ͘  ͘  ͘  ͘  ͘  ͘  ͘  ͘  ͘   ͘  ͘  ͘            /.o  ͘o.\  ͘  ͘
-                    <br>  ͘  ͘  ͘  ͘  ͘  ͘  ͘  ͘  ͘  ͘   ͘  ͘  ͘ \ ͘ ▽  ͘/ ͘  ͘  ͘ 
-                    <br>  ͘  ͘  ͘  ͘  ͘  ͘  ͘  ͘  ͘  ͘  ͘  ȑ ___/ ͘  ͘  ͘ \ ͘  ͘  ͘ 
-                    <br>  ͘  ͘  ͘  ͘  ͘  ͘  ͘  ͘  ͘  ͘  ͘   ͘   \ -- ; ͘   ͘  ) ͘  ͘  ͘ 
-                    <br>  ͘  ͘  ͘  ͘  ͘  ͘  ͘  ͘  ͘  ͘  ͘   ͘ ͘  \________/ ͘  ͘  ͘ 
-                    <br> ________________________________|___|_______ 
-                    <br>  ͘  ͘  ͘  ͘  ͘  ͘  ͘  ͘  ͘  ͘  ͘   ͘  ͘   "  ͘  " ͘  ͘  ͘ 
-                </p>
-                <p class="text-[var(--color-text)]">
-                    <span class="text-[var(--color-secondary)]">//</span> __//
-                </p>
-            </div>
-            <div class="mt-12 flex space-x-6">
-                <a href="#projects" class="button-3d">
-                    <span>> view_projects</span>
-                    <span>> view_projects</span>
-                    <span>> view_projects</span>
-                    <span>> view_projects</span>
-                </a>
-                <a href="#contact" class="button-3d">
-                    <span>> contact_me</span>
-                    <span>> contact_me</span>
-                    <span>> contact_me</span>
-                    <span>> contact_me</span>
-                </a>
-                <a href="#blog" class="button-3d">
-                    <span>> read_thoughts</span>
-                    <span>> read_thoughts</span>
-                    <span>> read_thoughts</span>
-                    <span>> read_thoughts</span>
-                </a>
-                <a href="#consulting" class="button-3d">
-                    <span>> consult_services</span>
-                    <span>> consult_services</span>
-                    <span>> consult_services</span>
-                    <span>> consult_services</span>
-                </a>
-            </div>
-        </div>
-        <div class="max-w-6xl mx-auto mt-12">
-            <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
-                <div class="stat-card p-8 bg-[#111] rounded-lg transform translate-y-20 opacity-0">
-                    <h3 class="text-5xl font-bold text-[var(--color-accent)] mb-2">150+</h3>
-                    <p class="text-lg">Projects Completed</p>
-                </div>
-                <div class="stat-card p-8 bg-[#111] rounded-lg transform translate-y-20 opacity-0" style="transition-delay: 0.1s">
-                    <h3 class="text-5xl font-bold text-[var(--color-accent)] mb-2">10+</h3>
-                    <p class="text-lg">Years Experience</p>
-                </div>
-                <div class="stat-card p-8 bg-[#111] rounded-lg transform translate-y-20 opacity-0" style="transition-delay: 0.2s">
-                    <h3 class="text-5xl font-bold text-[var(--color-accent)] mb-2">50+</h3>
-                    <p class="text-lg">Happy Clients</p>
-                </div>
-            </div>
-        </div>
-    </section>
-
     <section id="projects" class="py-20 px-6 lg:px-12">
         <div class="max-w-6xl mx-auto">
             <h2 class="text-4xl lg:text-6xl font-bold mb-16 text-center">Featured Project</h2>
-            <div class="projects-container relative h-[600px] overflow-hidden">
-                <div class="projects-scroller absolute top-0 left-0 h-full flex nowrap space-x-8">
+            <div class="projects-container relative h-[600px] overflow-hidden flex justify-center">
+                <div class="projects-scroller absolute top-0 left-0 h-full flex justify-center space-x-8">
                     <div class="project-card w-[80vw] lg:w-[50vw] h-full flex-shrink-0 bg-[#111] rounded-xl overflow-hidden relative group">
                         <div class="absolute inset-0 bg-gradient-to-t from-[var(--color-bg)] to-transparent z-10 opacity-80"></div>
                         <img src="https://images.unsplash.com/photo-1580587771525-78b9dba3b914?ixlib=rb-4.0.3&auto=format&fit=crop&w=1470&q=80" 
@@ -599,13 +524,6 @@
         <div class="max-w-6xl mx-auto">
             <h2 class="text-4xl lg:text-6xl font-bold mb-16 text-center">About Me</h2>
             <div class="flex flex-col lg:flex-row items-center gap-12 mb-20">
-                <div class="w-full lg:w-1/3 relative">
-                    <div class="aspect-square rounded-full overflow-hidden border-4 border-[var(--color-accent)]">
-                        <img src="https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?ixlib=rb-4.0.3&auto=format&fit=crop&w=687&q=80" 
-                             alt="Profile" 
-                             class="w-full h-full object-cover">
-                    </div>
-                </div>
                 <div class="w-full lg:w-2/3" style="z-index: 1000;">
                     <h3 class="text-3xl font-bold mb-6">Nikolaj here, short life story</h3>
                     <p class="text-lg mb-6">grew up on a small family farm in the middle of nowhere (awesome family) - lots of sports (football, swimming, motocross, handball, parkour, others) - built stuff in our workshop - liked business, so decided to break family tradition and go HHX (The Higher Commercial Examination Programme) - liked tech, heard San Francisco was the world capital, so started bachelor at University of San Francisco - decided the cost of living and studying in SF was too high compared to opportunities gained, so dropped out - moved back home to the farm, what now? - Sales is cool! Moved to Copenhagen to work in a real sales pit. Sell me this pen type shit (moved into my uncle’s basement to make this work) - Yes, finally got a place! Moved into a collective in the middle of Copenhagen (I later met my girlfriend here) - Sales pit job acted unethically, so I quit - shit, now I’m in Copenhagen with rent to pay, no job, and no plan - Got into a competitive digital management bachelor at Copenhagen Business School, so that’s cool - worked at a gas station (horrible for the soul, but free pigs in a blanket and pizza, if you think the rules about throwing them out are stupid) - This new school is cool, let’s do free internships to get experience - internships in blockchain and tech conference businesses. Pretty cool, but they don’t value me or my time at all - Got into high-ticket B2B sales at VAEKST, super cool colleagues and development -</p>
@@ -943,12 +861,12 @@
         const projectWidth = projectCards[0].offsetWidth + 32;
 
         gsap.to(projectsScroller, {
-            x: () => -(projectWidth * (projectCards.length - 1)),
+            x: () => -(projectWidth / 2), // Center the single project
             ease: 'none',
             scrollTrigger: {
                 trigger: '.projects-container',
                 start: 'top top',
-                end: () => `+=${projectWidth * (projectCards.length - 1)}`,
+                end: () => `+=${projectWidth}`,
                 scrub: 1,
                 pin: true,
                 invalidateOnRefresh: true
@@ -972,7 +890,7 @@
         const counter = document.getElementById('counter');
         const intro = document.getElementById('intro');
         let count = 0;
-        const duration = 5610;
+        const duration = 2805;
         const steps = 100;
         const stepTime = duration / steps;
 
