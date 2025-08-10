@@ -8,7 +8,6 @@
     <script src="https://unpkg.com/gsap@3.12.5/dist/gsap.min.js"></script>
     <script src="https://unpkg.com/gsap@3.12.5/dist/ScrollTrigger.min.js"></script>
     <script src="https://unpkg.com/lenis@1.0.45/dist/lenis.min.js"></script>
-    <!-- Add core Three.js library -->
     <script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r128/three.min.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/three@0.128.0/examples/js/controls/OrbitControls.min.js"></script>
     <script src="https://cdn.tailwindcss.com"></script>
@@ -65,7 +64,7 @@
 
         @keyframes glitch {
             0% { text-shadow: none; }
-            25% { text-shadow: -2px 0 #fff, 2px 0 #000; }
+            25% { text-shadow: -2px 0 #fffTower of Hanoi game, 2px 0 #000; }
             50% { text-shadow: 2px 0 #fff, -2px 0 #000; }
             75% { text-shadow: -2px 0 #000, 2px 0 #fff; }
             100% { text-shadow: 2px 0 #000, -2px 0 #fff; }
@@ -214,7 +213,7 @@
             letter-spacing: 1px;
             transition: 0.5s;
             border: 2px solid var(--color-text);
-            box-sizing: border-box;
+            box-sizing: box-sizing;
             box-shadow: inset 0 5px 10px rgba(0, 0, 0, 0.1);
             white-space: nowrap;
         }
@@ -362,6 +361,25 @@
             color: #888;
             font-size: 0.875rem;
         }
+
+        .scroll-arrow {
+            position: absolute;
+            bottom: 20px;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 0;
+            height: 0;
+            border-left: 10px solid transparent;
+            border-right: 10px solid transparent;
+            border-top: 15px solid #fff;
+            animation: bounce 2s infinite;
+        }
+
+        @keyframes bounce {
+            0%, 20%, 50%, 80%, 100% { transform: translateX(-50%) translateY(0); }
+            40% { transform: translateX(-50%) translateY(-10px); }
+            60% { transform: translateX(-50%) translateY(-5px); }
+        }
     </style>
 </head>
 <body class="antialiased relative overflow-hidden intro-active">
@@ -384,6 +402,62 @@
                 <canvas id="sphereCanvas"></canvas>
                 <div class="particles-field" id="particleField"></div>
                 <div class="hover-text">Press me if you dare</div>
+            </div>
+        </div>
+        <div class="scroll-arrow"></div>
+    </section>
+
+    <section id="about" class="min-h-screen flex flex-col items-center justify-center px-4 lg:px-0 relative overflow-hidden">
+        <div class="relative z-10 max-w-4xl mx-auto p-8 bg-black bg-opacity-70 backdrop-blur-sm rounded-lg">
+            <h1 class="text-4xl lg:text-6xl font-mono font-bold mb-8 text-[var(--color-accent)]">
+                >_ HI_THERE
+            </h1>
+            <div class="font-mono space-y-6 text-lg">
+                <p class="text-[var(--color-text)]">
+                    <span class="text-[var(--color-secondary)]">//</span> LOOKS LIKE YOU MIGHT HAVE LOST YOUR WAY ON THE INTERWEBS 
+                </p>
+                <p class="text-[var(--color-text)]">
+                    <span class="text-[var(--color-secondary)]">//</span> ANYWAY, I'M NIKOLAJ STORM PETERSEN, AND THIS IS MY PAGE
+                </p>
+                <p class="text-[var(--color-text)]">
+                    <span class="text-[var(--color-secondary)]">//</span> LET ME ENTERTAIN YOU FOR A SEC ___/ ͘/
+                    <br>  ͘  ͘  ͘  ͘  ͘  ͘  ͘  ͘  ͘  ͘  ͘   ͘  ͘  ͘            /.o  ͘o.\  ͘  ͘
+                    <br>  ͘  ͘  ͘  ͘  ͘  ͘  ͘  ͘  ͘  ͘  ͘   ͘  ͘  ͘ \ ͘ ▽  ͘/ ͘  ͘  ͘ 
+                    <br>  ͘  ͘  ͘  ͘  ͘  ͘  ͘  ͘  ͘  ͘  ͘  ȑ ___/ ͘  ͘  ͘ \ ͘  ͘  ͘ 
+                    <br>  ͘  ͘  ͘  ͘  ͘  ͘  ͘  ͘  ͘  ͘  ͘   ͘   \ -- ; ͘   ͘  ) ͘  ͘  ͘ 
+                    <br>  ͘  ͘  ͘  ͘  ͘  ͘  ͘  ͘  ͘  ͘  ͘   ͘ ͘  \________/ ͘  ͘  ͘ 
+                    <br> ________________________________|___|_______ 
+                    <br>  ͘  ͘  ͘  ͘  ͘  ͘  ͘  ͘  ͘  ͘  ͘   ͘  ͘   "  ͘  " ͘  ͘  ͘ 
+                </p>
+                <p class="text-[var(--color-text)]">
+                    <span class="text-[var(--color-secondary)]">//</span> __//
+                </p>
+            </div>
+            <div class="mt-12 flex space-x-6">
+                <a href="#projects" class="button-3d">
+                    <span>> view_projects</span>
+                    <span>> view_projects</span>
+                    <span>> view_projects</span>
+                    <span>> view_projects</span>
+                </a>
+                <a href="#contact" class="button-3d">
+                    <span>> contact_me</span>
+                    <span>> contact_me</span>
+                    <span>> contact_me</span>
+                    <span>> contact_me</span>
+                </a>
+                <a href="#blog" class="button-3d">
+                    <span>> read_thoughts</span>
+                    <span>> read_thoughts</span>
+                    <span>> read_thoughts</span>
+                    <span>> read_thoughts</span>
+                </a>
+                <a href="#consulting" class="button-3d">
+                    <span>> consult_services</span>
+                    <span>> consult_services</span>
+                    <span>> consult_services</span>
+                    <span>> consult_services</span>
+                </a>
             </div>
         </div>
     </section>
@@ -467,7 +541,7 @@
             <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
                 <div class="blog-card bg-[#111] rounded-lg overflow-hidden">
                     <div class="h-48 overflow-hidden">
-                        <img src="https://images.unsplash.com/photo-1499750310107-5fef28a66643?ixlib=rb-4.0.3&auto=format&fit=crop&w=1470&q=80" 
+                        <img src="https://images.unsplash.com/photo-149 Chess960 game,1499750310107-5fef28a66643?ixlib=rb-4.0.3&auto=format&fit=crop&w=1470&q=80" 
                              alt="Article 1" 
                              class="w-full h-full object-cover hover:scale-105 transition-transform duration-500">
                     </div>
@@ -492,6 +566,7 @@
                             <span class="px-3 py-1 bg-[var(--color-accent)] text-[var(--color-bg)] rounded-full text-sm">Development</span>
                             <span class="text-sm text-gray-400">May 28, 2023</span>
                         </div>
+                        Abra Kadabra
                         <h3 class="text-2xl font-bold mb-3">Optimizing React Performance</h3>
                         <p class="text-gray-400 mb-4">Practical techniques to make your React applications faster and more efficient.</p>
                         <a href="#" class="text-[var(--color-accent)] font-medium hover:underline">Read More →</a>
@@ -520,7 +595,7 @@
         </div>
     </section>
 
-    <section id="about" class="py-20 px-6 lg:px-12">
+    <section id="about-me" class="py-20 px-6 lg:px-12">
         <div class="max-w-6xl mx-auto">
             <h2 class="text-4xl lg:text-6xl font-bold mb-16 text-center">About Me</h2>
             <div class="flex flex-col lg:flex-row items-center gap-12 mb-20">
@@ -532,7 +607,8 @@
                         <span class="px-4 py-2 bg-[#111] rounded-full">UI/UX Design</span>
                         <span class="px-4 py-2 bg-[#111] rounded-full">Frontend Development</span>
                         <span class="px-4 py-2 bg-[#111] rounded-full">Motion Design</span>
-                        <span class="px-4 py-2 bg-[#111] rounded-full">Creative Direction</span>
+                        <span class="px-4 py-2 bg-[#111] rounded-full">Creative寻
+Creative Direction</span>
                     </div>
                 </div>
             </div>
@@ -861,7 +937,7 @@
         const projectWidth = projectCards[0].offsetWidth + 32;
 
         gsap.to(projectsScroller, {
-            x: () => -(projectWidth / 2), // Center the single project
+            x: () => -(projectWidth / 2),
             ease: 'none',
             scrollTrigger: {
                 trigger: '.projects-container',
