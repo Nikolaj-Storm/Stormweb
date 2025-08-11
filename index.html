@@ -64,7 +64,7 @@
 
         @keyframes glitch {
             0% { text-shadow: none; }
-            25% { text-shadow: -2px 0 #fffTower of Hanoi game, 2px 0 #000; }
+            25% { text-shadow: -2px 0 #fff, 2px 0 #000; }
             50% { text-shadow: 2px 0 #fff, -2px 0 #000; }
             75% { text-shadow: -2px 0 #000, 2px 0 #fff; }
             100% { text-shadow: 2px 0 #000, -2px 0 #fff; }
@@ -185,8 +185,8 @@
 
         .button-3d {
             position: relative;
-            width: 160px;
-            height: 40px;
+            width: 24vw;
+            height: 6vw;
             transition: 4s;
             transform-style: preserve-3d;
             transform: perspective(1000px) rotateX(0deg);
@@ -209,12 +209,12 @@
             background: var(--color-bg);
             font-family: 'Courier New', monospace;
             text-transform: uppercase;
-            font-size: 16px;
-            letter-spacing: 1px;
+            font-size: 2vw;
+            letter-spacing: 0.2vw;
             transition: 0.5s;
-            border: 2px solid var(--color-text);
+            border: 0.4vw solid var(--color-text);
             box-sizing: box-sizing;
-            box-shadow: inset 0 5px 10px rgba(0, 0, 0, 0.1);
+            box-shadow: inset 0 0.5vw 1vw rgba(0, 0, 0, 0.1);
             white-space: nowrap;
         }
 
@@ -224,19 +224,19 @@
         }
 
         .button-3d span:nth-child(1) {
-            transform: rotateX(360deg) translateZ(20px);
+            transform: rotateX(360deg) translateZ(4vw);
         }
 
         .button-3d span:nth-child(2) {
-            transform: rotateX(270deg) translateZ(20px);
+            transform: rotateX(270deg) translateZ(4vw);
         }
 
         .button-3d span:nth-child(3) {
-            transform: rotateX(180deg) translateZ(20px);
+            transform: rotateX(180deg) translateZ(4vw);
         }
 
         .button-3d span:nth-child(4) {
-            transform: rotateX(90deg) translateZ(20px);
+            transform: rotateX(90deg) translateZ(4vw);
         }
 
         #intro {
@@ -267,6 +267,7 @@
             transform: scale(0.95);
             opacity: 0;
             animation: pop-in 0.4s ease-out forwards;
+            text-align: center;
         }
 
         @keyframes pop-in {
@@ -309,6 +310,8 @@
             position: relative;
             overflow: hidden;
             cursor: pointer;
+            margin-left: auto;
+            margin-right: auto;
         }
 
         .consulting-package:hover {
@@ -408,56 +411,58 @@
     </section>
 
     <section id="about" class="min-h-screen flex flex-col items-center justify-center px-4 lg:px-0 relative overflow-hidden">
-        <div class="relative z-10 max-w-4xl mx-auto p-8 bg-black bg-opacity-70 backdrop-blur-sm rounded-lg">
-            <h1 class="text-4xl lg:text-6xl font-mono font-bold mb-8 text-[var(--color-accent)]">
-                >_ HI_THERE
-            </h1>
-            <div class="font-mono space-y-6 text-lg">
-                <p class="text-[var(--color-text)]">
-                    <span class="text-[var(--color-secondary)]">//</span> LOOKS LIKE YOU MIGHT HAVE LOST YOUR WAY ON THE INTERWEBS 
-                </p>
-                <p class="text-[var(--color-text)]">
-                    <span class="text-[var(--color-secondary)]">//</span> ANYWAY, I'M NIKOLAJ STORM PETERSEN, AND THIS IS MY PAGE
-                </p>
-                <p class="text-[var(--color-text)]">
-                    <span class="text-[var(--color-secondary)]">//</span> LET ME ENTERTAIN YOU FOR A SEC ___/ ͘/
-                    <br>  ͘  ͘  ͘  ͘  ͘  ͘  ͘  ͘  ͘  ͘  ͘   ͘  ͘  ͘            /.o  ͘o.\  ͘  ͘
-                    <br>  ͘  ͘  ͘  ͘  ͘  ͘  ͘  ͘  ͘  ͘  ͘   ͘  ͘  ͘ \ ͘ ▽  ͘/ ͘  ͘  ͘ 
-                    <br>  ͘  ͘  ͘  ͘  ͘  ͘  ͘  ͘  ͘  ͘  ͘  ȑ ___/ ͘  ͘  ͘ \ ͘  ͘  ͘ 
-                    <br>  ͘  ͘  ͘  ͘  ͘  ͘  ͘  ͘  ͘  ͘  ͘   ͘   \ -- ; ͘   ͘  ) ͘  ͘  ͘ 
-                    <br>  ͘  ͘  ͘  ͘  ͘  ͘  ͘  ͘  ͘  ͘  ͘   ͘ ͘  \________/ ͘  ͘  ͘ 
-                    <br> ________________________________|___|_______ 
-                    <br>  ͘  ͘  ͘  ͘  ͘  ͘  ͘  ͘  ͘  ͘  ͘   ͘  ͘   "  ͘  " ͘  ͘  ͘ 
-                </p>
-                <p class="text-[var(--color-text)]">
-                    <span class="text-[var(--color-secondary)]">//</span> __//
-                </p>
-            </div>
-            <div class="mt-12 flex space-x-6">
-                <a href="#projects" class="button-3d">
-                    <span>> Projects</span>
-                    <span>> Projects</span>
-                    <span>> Projects</span>
-                    <span>> Projects</span>
-                </a>
-                <a href="#contact" class="button-3d">
-                    <span>> Contact_Me</span>
-                    <span>> Contact_Me</span>
-                    <span>> Contact_Me</span>
-                    <span>> Contact_Me</span>
-                </a>
-                <a href="#blog" class="button-3d">
-                    <span>> Thoughts</span>
-                    <span>> Thoughts</span>
-                    <span>> Thoughts</span>
-                    <span>> Thoughts</span>
-                </a>
-                <a href="#consulting" class="button-3d">
-                    <span>> Buy_Me</span>
-                    <span>> Buy_Me</span>
-                    <span>> Buy_Me</span>
-                    <span>> Buy_Me</span>
-                </a>
+        <div class="max-w-[90vw] mx-auto">
+            <div class="relative z-10 max-w-4xl mx-auto p-8 bg-black bg-opacity-70 backdrop-blur-sm rounded-lg">
+                <h1 class="text-[clamp(2rem, 6vw, 6rem)] lg:text-[clamp(3rem, 8vw, 8rem)] font-mono font-bold mb-8 text-[var(--color-accent)]">
+                    >_ HI_THERE
+                </h1>
+                <div class="font-mono space-y-6 text-[clamp(1rem, 2vw, 1.5rem)]">
+                    <p class="text-[var(--color-text)]">
+                        <span class="text-[var(--color-secondary)]">//</span> LOOKS LIKE YOU MIGHT HAVE LOST YOUR WAY ON THE INTERWEBS 
+                    </p>
+                    <p class="text-[var(--color-text)]">
+                        <span class="text-[var(--color-secondary)]">//</span> ANYWAY, I'M NIKOLAJ STORM PETERSEN, AND THIS IS MY PAGE
+                    </p>
+                    <p class="text-[var(--color-text)]">
+                        <span class="text-[var(--color-secondary)]">//</span> LET ME ENTERTAIN YOU FOR A SEC ___/ ͘/
+                        <br>  ͘  ͘  ͘  ͘  ͘  ͘  ͘  ͘  ͘  ͘  ͘   ͘  ͘  ͘            /.o  ͘o.\  ͘  ͘
+                        <br>  ͘  ͘  ͘  ͘  ͘  ͘  ͘  ͘  ͘  ͘  ͘   ͘  ͘  ͘ \ ͘ ▽  ͘/ ͘  ͘  ͘ 
+                        <br>  ͘  ͘  ͘  ͘  ͘  ͘  ͘  ͘  ͘  ͘  ͘  ȑ ___/ ͘  ͘  ͘ \ ͘  ͘  ͘ 
+                        <br>  ͘  ͘  ͘  ͘  ͘  ͘  ͘  ͘  ͘  ͘  ͘   ͘   \ -- ; ͘   ͘  ) ͘  ͘  ͘ 
+                        <br>  ͘  ͘  ͘  ͘  ͘  ͘  ͘  ͘  ͘  ͘  ͘   ͘ ͘  \________/ ͘  ͘  ͘ 
+                        <br> ________________________________|___|_______ 
+                        <br>  ͘  ͘  ͘  ͘  ͘  ͘  ͘  ͘  ͘  ͘  ͘   ͘  ͘   "  ͘  " ͘  ͘  ͘ 
+                    </p>
+                    <p class="text-[var(--color-text)]">
+                        <span class="text-[var(--color-secondary)]">//</span> __//
+                    </p>
+                </div>
+                <div class="mt-12 flex space-x-6 justify-center lg:flex lg:space-x-6 lg:justify-center">
+                    <a href="#projects" class="button-3d">
+                        <span>> Projects</span>
+                        <span>> Projects</span>
+                        <span>> Projects</span>
+                        <span>> Projects</span>
+                    </a>
+                    <a href="#contact" class="button-3d">
+                        <span>> Contact_Me</span>
+                        <span>> Contact_Me</span>
+                        <span>> Contact_Me</span>
+                        <span>> Contact_Me</span>
+                    </a>
+                    <a href="#blog" class="button-3d">
+                        <span>> Thoughts</span>
+                        <span>> Thoughts</span>
+                        <span>> Thoughts</span>
+                        <span>> Thoughts</span>
+                    </a>
+                    <a href="#consulting" class="button-3d">
+                        <span>> Buy_Me</span>
+                        <span>> Buy_Me</span>
+                        <span>> Buy_Me</span>
+                        <span>> Buy_Me</span>
+                    </a>
+                </div>
             </div>
         </div>
     </section>
@@ -506,9 +511,9 @@
     <section id="projects" class="py-20 px-6 lg:px-12">
         <div class="max-w-6xl mx-auto">
             <h2 class="text-4xl lg:text-6xl font-bold mb-16 text-center">Featured Project</h2>
-            <div class="projects-container relative h-[600px] overflow-hidden flex justify-center">
-                <div class="projects-scroller absolute top-0 left-0 h-full flex justify-center space-x-8">
-                    <div class="project-card w-[80vw] lg:w-[50vw] h-full flex-shrink-0 bg-[#111] rounded-xl overflow-hidden relative group">
+            <div class="projects-container relative h-[600px] overflow-hidden flex justify-center items-center">
+                <div class="projects-scroller flex justify-center space-x-8">
+                    <div class="project-card w-[80vw] lg:w-[50vw] h-full flex-shrink-0 bg-[#111] rounded-xl overflow-hidden relative group mx-auto">
                         <div class="absolute inset-0 bg-gradient-to-t from-[var(--color-bg)] to-transparent z-10 opacity-80"></div>
                         <img src="https://images.unsplash.com/photo-1580587771525-78b9dba3b914?ixlib=rb-4.0.3&auto=format&fit=crop&w=1470&q=80" 
                              alt="Donna AI Legal Assistant" 
@@ -541,7 +546,7 @@
             <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
                 <div class="blog-card bg-[#111] rounded-lg overflow-hidden">
                     <div class="h-48 overflow-hidden">
-                        <img src="https://images.unsplash.com/photo-149 Chess960 game,1499750310107-5fef28a66643?ixlib=rb-4.0.3&auto=format&fit=crop&w=1470&q=80" 
+                        <img src="https://images.unsplash.com/photo-1498050107-5fef28a66643?ixlib=rb-4.0.3&auto=format&fit=crop&w=1470&q=80" 
                              alt="Article 1" 
                              class="w-full h-full object-cover hover:scale-105 transition-transform duration-500">
                     </div>
@@ -566,7 +571,6 @@
                             <span class="px-3 py-1 bg-[var(--color-accent)] text-[var(--color-bg)] rounded-full text-sm">Development</span>
                             <span class="text-sm text-gray-400">May 28, 2023</span>
                         </div>
-                        Abra Kadabra
                         <h3 class="text-2xl font-bold mb-3">Optimizing React Performance</h3>
                         <p class="text-gray-400 mb-4">Practical techniques to make your React applications faster and more efficient.</p>
                         <a href="#" class="text-[var(--color-accent)] font-medium hover:underline">Read More →</a>
@@ -598,9 +602,9 @@
     <section id="about-me" class="py-20 px-6 lg:px-12">
         <div class="max-w-6xl mx-auto">
             <h2 class="text-4xl lg:text-6xl font-bold mb-16 text-center">About Me</h2>
-            <div class="flex flex-col lg:flex-row items-center gap-12 mb-20">
-                <div class="w-full lg:w-2/3" style="z-index: 1000;">
-                    <h3 class="text-3xl font-bold mb-6">Nikolaj here, short life story</h3>
+            <div class="flex flex-col items-center gap-12 mb-20">
+                <div class="w-full lg:w-2/3 mx-auto" style="z-index: 1000;">
+                    <h3 class="text-3xl font-bold mb-6 text-center">Nikolaj here, short life story</h3>
                     <p class="text-lg mb-6">grew up on a small family farm in the middle of nowhere (awesome family) - lots of sports (football, swimming, motocross, handball, parkour, others) - built stuff in our workshop - liked business, so decided to break family tradition and go HHX (The Higher Commercial Examination Programme) - liked tech, heard San Francisco was the world capital, so started bachelor at University of San Francisco - decided the cost of living and studying in SF was too high compared to opportunities gained, so dropped out - moved back home to the farm, what now? - Sales is cool! Moved to Copenhagen to work in a real sales pit. Sell me this pen type shit (moved into my uncle’s basement to make this work) - Yes, finally got a place! Moved into a collective in the middle of Copenhagen (I later met my girlfriend here) - Sales pit job acted unethically, so I quit - shit, now I’m in Copenhagen with rent to pay, no job, and no plan - Got into a competitive digital management bachelor at Copenhagen Business School, so that’s cool - worked at a gas station (horrible for the soul, but free pigs in a blanket and pizza, if you think the rules about throwing them out are stupid) - This new school is cool, let’s do free internships to get experience - internships in blockchain and tech conference businesses. Pretty cool, but they don’t value me or my time at all - Got into high-ticket B2B sales at VAEKST, super cool colleagues and development -</p>
                     <p class="text-lg mb-8">But I put my name in the Novo Nordisk talent pipeline a while back, and now they call about different opportunities, so I took an internship in their Quality Assurance department, nice salary and fun tasks - got together with my girlfriend (best thing in my life) - bought an apartment with my sister, where I moved to (still in Copenhagen) - internship over - focus on playing with projects and developing my skills (AI is cool, huh) - got offered exchange spot at a cool university in England... what should I do, is this a better opportunity than I can create for myself in Copenhagen?... turned it down, now I can stay in CPH with my GF - Shit, just got offered internship at Innovation Center Denmark in Boston, USA... hard choice... too good, let’s do it - ...to be continued</p>
                     <div class="flex flex-wrap gap-4">
@@ -613,9 +617,8 @@
     <section id="consulting" class="py-20 px-6 lg:px-12">
         <div class="max-w-4xl mx-auto">
             <h2 class="text-4xl font-bold mb-8 text-center">Consulting Services</h2>
-            <div class="grid grid-cols-1 md:grid-cols-3 gap-6 mb-12">
-
-                <a href="https://example.com/custom-consultation" class="consulting-package">
+            <div class="flex justify-center mb-12">
+                <a href="https://example.com/custom-consultation" class="consulting-package w-full max-w-sm">
                     <h3>Freebie</h3>
                     <p>Quick exploratory chat, to see if I can even help you</p>
                     <div class="price">Price => a Coffee</div>
@@ -631,11 +634,11 @@
     <section id="contact" class="py-20 px-6 lg:px-12">
         <div class="max-w-4xl mx-auto">
             <h2 class="text-4xl lg:text-6xl font-bold mb-16 text-center">Get In Touch</h2>
-            <div class="grid grid-cols-1 md:grid-cols-2 gap-12">
-                <div>
-                    <h3 class="text-2xl font-bold mb-6">Let's work together</h3>
-                    <p class="text-lg mb-8">I'm always open to discussing new projects and ideas</p>
-                    <div class="space-y-4">
+            <div class="grid grid-cols-1 place-items-center gap-12">
+                <div class="flex flex-col w-full max-w-sm">
+                    <h3 class="text-2xl font-bold mb-6 text-center">Let's work together</h3>
+                    <p class="text-lg mb-8 text-center">I'm always open to discussing new projects and ideas</p>
+                    <div class="space-y-4 w-full">
                         <div class="flex items-center space-x-4">
                             <div class="w-10 h-10 bg-[var(--color-accent)] rounded-full flex items-center justify-center">
                                 <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="var(--color-bg)" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
@@ -902,7 +905,7 @@
         const projectWidth = projectCards[0].offsetWidth + 32;
 
         gsap.to(projectsScroller, {
-            x: () => -(projectWidth / 2),
+            x: 0,
             ease: 'none',
             scrollTrigger: {
                 trigger: '.projects-container',
