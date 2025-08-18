@@ -427,11 +427,11 @@
                         <span class="text-[var(--color-secondary)]">//</span> LET ME ENTERTAIN YOU FOR A SEC ___/ ͘/
                         <br>  ͘  ͘  ͘  ͘  ͘  ͘  ͘  ͘  ͘  ͘  ͘   ͘  ͘  ͘            /.o  ͘o.\  ͘  ͘
                         <br>  ͘  ͘  ͘  ͘  ͘  ͘  ͘  ͘  ͘  ͘  ͘   ͘  ͘  ͘ \ ͘ ▽  ͘/ ͘  ͘  ͘ 
-                        <br>  ͘  ͘  ͘  ͘  ͘  ͘  ͘  ͘  ͘  ͘  ͘  ȑ ___/ ͘  ͘  ͘ \ ͘  ͘  ͘ 
-                        <br>  ͘  ͘  ͘  ͘  ͘  ͘  ͘  ͘  ͘  ͘  ͘   ͘   \ -- ; ͘   ͘  ) ͘  ͘  ͘ 
-                        <br>  ͘  ͘  ͘  ͘  ͘  ͘  ͘  ͘  ͘  ͘  ͘   ͘ ͘  \________/ ͘  ͘  ͘ 
+                        <br> ͘ ͘ ͘ ͘ ͘ ͘ ͘ ͘ ͘ ͘ ͘ ͘ ͘ ͘ ȑ ___/ ͘ ͘ ͘ \ ͘ ͘ ͘
+                        <br> ͘ ͘ ͘ ͘ ͘ ͘ ͘ ͘ ͘ ͘ ͘ ͘ ͘ ͘ ͘ \ -- ; ͘ ͘ ) ͘ ͘ ͘
+                        <br> ͘ ͘ ͘ ͘ ͘ ͘ ͘ ͘ ͘ ͘ ͘ ͘ ͘ ͘ ͘ \________/ ͘ ͘ ͘
                         <br> ________________________________|___|_______ 
-                        <br>  ͘  ͘  ͘  ͘  ͘  ͘  ͘  ͘  ͘  ͘  ͘   ͘  ͘   "  ͘  " ͘  ͘  ͘ 
+                        <br> ͘ ͘ ͘ ͘ ͘ ͘ ͘ ͘ ͘ ͘ ͘ ͘ ͘ ͘ " ͘ " ͘ ͘ ͘
                     </p>
                     <p class="text-[var(--color-text)]">
                         <span class="text-[var(--color-secondary)]">//</span> __//
@@ -515,9 +515,12 @@
                 <div class="projects-scroller flex justify-center space-x-8">
                     <div class="project-card w-[80vw] lg:w-[50vw] h-full flex-shrink-0 bg-[#111] rounded-xl overflow-hidden relative group mx-auto">
                         <div class="absolute inset-0 bg-gradient-to-t from-[var(--color-bg)] to-transparent z-10 opacity-80"></div>
-                        <img src="https://images.unsplash.com/photo-1580587771525-78b9dba3b914?ixlib=rb-4.0.3&auto=format&fit=crop&w=1470&q=80" 
-                             alt="Donna AI Legal Assistant" 
-                             class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500">
+                        <div class="project-image w-full h-full">
+                            <video autoplay muted loop playsinline class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500">
+                                <source src="/assets/donna-ai-demo.mp4" type="video/mp4">
+                                Your browser does not support the video tag. Here's a static image fallback: <img src="/assets/filter.png" alt="Donna AI Demo">
+                            </video>
+                        </div>
                         <div class="absolute bottom-0 left-0 p-8 z-20">
                             <h3 class="text-3xl font-bold mb-2">Donna AI Legal Assistant</h3>
                             <p class="text-lg mb-4">An AI-powered assistant for Danish law, built with a robust backend and user-friendly frontend.</p>
