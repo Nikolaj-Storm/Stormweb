@@ -1,0 +1,210 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Maison Margiela</title>
+  <style>
+    body {
+      font-family: "Courier New", Courier, monospace;
+      margin: 0;
+      padding: 20px;
+      background-color: #fff;
+      color: #000;
+      line-height: 1.6;
+    }
+    .container {
+      max-width: 900px;
+      margin: 0 auto;
+    }
+    .header {
+      font-size: 4em;
+      font-weight: bold;
+      margin-bottom: 20px;
+      text-align: center;
+      border-bottom: 2px solid #000;
+      padding-bottom: 10px;
+    }
+    .subtext {
+      font-size: 1em;
+      margin-bottom: 40px;
+      text-align: center;
+    }
+    .image {
+      width: 100%;
+      height: auto;
+      margin: 30px 0;
+      border: 2px solid #000;
+    }
+    .info {
+      display: flex;
+      justify-content: space-between;
+      margin-bottom: 40px;
+      font-size: 0.9em;
+    }
+    .info div {
+      width: 45%;
+      border-left: 2px solid #000;
+      padding-left: 10px;
+    }
+    .section {
+      display: flex;
+      justify-content: space-between;
+      margin-bottom: 50px;
+      align-items: flex-start;
+      opacity: 0;
+      transform: translateX(-80px);
+      transition: all 0.8s ease-out;
+    }
+    .section.reverse {
+      flex-direction: row-reverse;
+      transform: translateX(80px);
+    }
+    .section.show {
+      opacity: 1;
+      transform: translateX(0);
+    }
+    .section .text {
+      width: 60%;
+      text-align: left;
+    }
+    .section .image-small {
+      width: 30%;
+      height: auto;
+      border: 2px solid #000;
+    }
+    .quote {
+      font-style: italic;
+      margin: 50px 0;
+      text-align: center;
+      font-size: 1.1em;
+      border-top: 2px dashed #000;
+      border-bottom: 2px dashed #000;
+      padding: 20px 0;
+      opacity: 0;
+      transform: translateY(50px);
+      transition: all 0.8s ease-out;
+    }
+    .quote.show {
+      opacity: 1;
+      transform: translateY(0);
+    }
+    .footer {
+      font-size: 2em;
+      font-weight: bold;
+      text-align: center;
+      margin-top: 60px;
+      border-top: 2px solid #000;
+      padding-top: 20px;
+      opacity: 0;
+      transform: translateY(50px);
+      transition: all 0.8s ease-out;
+    }
+    .footer.show {
+      opacity: 1;
+      transform: translateY(0);
+    }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <!-- INTRO -->
+    <h1 class="header">WHO IS MAISON MARGIELA?</h1>
+    <p class="subtext">Fashion as machine language. A sequence of codes, dismantled and rebuilt. Maison Margiela is not about a person, but about fragments: garments dissected, patterns inverted, histories undone. In black and white, meaning emerges.</p>
+    
+    <img src="face-image.jpg" alt="Large Image" class="image">
+    
+    <div class="info">
+      <div>
+        <p>HEAD OFFICE:<br>FRANCE / PARIS</p>
+      </div>
+      <div>
+        <p>FOUNDERS:<br>MARTIN MARGIELA / JENNY MEIRENS</p>
+      </div>
+    </div>
+
+    <!-- CONTENT SECTIONS -->
+    <div class="section">
+      <div class="text">
+        <h2>01 LOSS AVERSION</h2>
+        <p>We’re scared little babies about losing stuff. We feel losses way harder than gains, think 2x the gut punch. I once held onto a crypto coin that tanked because selling felt like admitting defeat. Kahneman and Tversky showed we’d rather gamble than cut losses. Lesson: Cut the cord, dude.</p>
+      </div>
+      <img src="bias1.jpg" alt="Loss Aversion" class="image-small">
+    </div>
+
+    <div class="quote">“Silence itself was a revolution. Absence became louder than presence.”</div>
+
+    <div class="section reverse">
+      <div class="text">
+        <h2>02 FRAMING EFFECT</h2>
+        <p>Words are sneaky bastards. “75% fat-free” yogurt sounds like health food, but “25% fat” sounds like a heart attack. Kahneman and Tversky proved we’ll pick surgery with a “90% survival rate” over “10% death rate,” even though it’s identical. Lesson: Read the fine print, ignore the hype.</p>
+      </div>
+      <img src="bias2.jpg" alt="Framing Effect" class="image-small">
+    </div>
+
+    <div class="section">
+      <div class="text">
+        <h2>03 ENDOWMENT EFFECT</h2>
+        <p>My junk is my treasure. I refused to sell an old skateboard for $50 because it was mine, but I wouldn’t pay $20 for it on eBay. Richard Thaler showed owners demand more to sell than they’d pay to buy. Lesson: Your stuff isn’t that special. Let it go.</p>
+      </div>
+      <img src="bias3.jpg" alt="Endowment Effect" class="image-small">
+    </div>
+
+    <div class="quote">“The unfinished was the finished. The raw was the refined.”</div>
+
+    <div class="section reverse">
+      <div class="text">
+        <h2>04 ANCHORING BIAS</h2>
+        <p>The first number screws you. I overpaid for a laptop because the tag said “was $1200, now $800.” Felt like a deal, but worth maybe $600. Even random numbers can anchor our guesses. Lesson: Ignore the first number, it’s a mental trap designed to mess with you.</p>
+      </div>
+      <img src="bias4.jpg" alt="Anchoring Bias" class="image-small">
+    </div>
+
+    <div class="section">
+      <div class="text">
+        <h2>05 SUNK COST FALLACY</h2>
+        <p>Throwing good money after bad. I stuck with a shady sales job because I’d already put in months. That’s sunk cost fallacy—doubling down on losses. Thaler says we hate wasting past effort. It’s why people stay in dead-end relationships. Lesson: Past costs are gone. Focus on what’s next.</p>
+      </div>
+      <img src="bias5.jpg" alt="Sunk Cost" class="image-small">
+    </div>
+
+    <div class="section reverse">
+      <div class="text">
+        <h2>06 PRESENT BIAS</h2>
+        <p>Gimme now, screw tomorrow. I blew savings on a leather jacket instead of rent. That’s present bias—instant gratification over future gains. Laibson showed we’d take $100 today over $125 in a year. Lesson: Trick yourself into saving, automate decisions so your future self doesn’t hate you.</p>
+      </div>
+      <img src="bias6.jpg" alt="Present Bias" class="image-small">
+    </div>
+
+    <div class="section">
+      <div class="text">
+        <h2>07 STATUS QUO BIAS</h2>
+        <p>Change is for suckers. Ever stick with a crappy phone plan because switching feels like a hassle? That’s status quo bias. Madrian showed default 401(k) opt-outs skyrocket enrollment. We resist change from fear or laziness. Lesson: Staying stuck is worse than switching. Rip the Band-Aid off.</p>
+      </div>
+      <img src="bias7.jpg" alt="Status Quo Bias" class="image-small">
+    </div>
+
+    <div class="section reverse">
+      <div class="text">
+        <h2>08 OVERCONFIDENCE BIAS</h2>
+        <p>I’m a freaking genius (spoiler: I’m not). I thought I could nail a pitch with zero prep. Crashed and burned. Gruber says 80% of drivers think they’re above average (impossible!). Overconfidence blinds us to risk. Lesson: Humble up, plan better, and assume you’re wrong sometimes.</p>
+      </div>
+      <img src="bias8.jpg" alt="Overconfidence" class="image-small">
+    </div>
+
+    <div class="footer">MEIRENS</div>
+  </div>
+
+  <script>
+    const observer = new IntersectionObserver((entries) => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting) {
+          entry.target.classList.add('show');
+        }
+      });
+    }, { threshold: 0.2 });
+
+    document.querySelectorAll('.section, .quote, .footer').forEach(el => observer.observe(el));
+  </script>
+</body>
+</html>
