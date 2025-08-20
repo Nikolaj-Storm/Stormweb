@@ -214,7 +214,7 @@
             letter-spacing: 0.2vw;
             transition: 0.5s;
             border: 0.4vw solid var(--color-text);
-            box-sizing: box-sizing;
+            box-sizing: border-box;
             box-shadow: inset 0 0.5vw 1vw rgba(0, 0, 0, 0.1);
             white-space: nowrap;
         }
@@ -384,6 +384,91 @@
             40% { transform: translateX(-50%) translateY(-10px); }
             60% { transform: translateX(-50%) translateY(-5px); }
         }
+
+        /* New styles for arrow navigation */
+        .nav-arrow {
+            position: absolute;
+            top: 50%;
+            transform: translateY(-50%);
+            width: 40px;
+            height: 40px;
+            border: 2px solid var(--color-accent);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            cursor: pointer;
+            transition: background-color 0.3s, transform 0.3s;
+            z-index: 20;
+        }
+
+        .nav-arrow:hover {
+            background-color: var(--color-accent);
+            color: var(--color-bg);
+            transform: translateY(-50%) scale(1.1);
+        }
+
+        .nav-arrow.left {
+            left: 10px;
+        }
+
+        .nav-arrow.right {
+            right: 10px;
+        }
+
+        .projects-container {
+            position: relative;
+            width: 100%;
+            height: 600px;
+            overflow: hidden;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+
+        .projects-scroller {
+            display: flex;
+            transition: transform 0.5s ease;
+        }
+
+        .project-card {
+            flex: 0 0 auto;
+            width: 80vw;
+            max-width: 50vw;
+            height: 100%;
+            opacity: 0;
+            transition: opacity 0.5s ease;
+        }
+
+        .project-card.active {
+            opacity: 1;
+        }
+
+        .blog-container {
+            position: relative;
+            width: 100%;
+            overflow: hidden;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+
+        .blog-scroller {
+            display: flex;
+            transition: transform 0.5s ease;
+        }
+
+        .blog-card {
+            flex: 0 0 auto;
+            width: 100%;
+            max-width: 448px;
+            opacity: 0;
+            transition: opacity 0.5s ease;
+        }
+
+        .blog-card.active {
+            opacity: 1;
+        }
     </style>
 </head>
 <body class="antialiased relative overflow-hidden intro-active">
@@ -512,9 +597,14 @@
     <section id="projects" class="py-20 px-6 lg:px-12">
         <div class="max-w-6xl mx-auto">
             <h2 class="text-4xl lg:text-6xl font-bold mb-16 text-center">Featured Project</h2>
-            <div class="projects-container relative h-[600px] overflow-hidden flex justify-center items-center">
-                <div class="projects-scroller flex justify-center space-x-8">
-                    <div class="project-card w-[80vw] lg:w-[50vw] h-full flex-shrink-0 bg-[#111] rounded-xl overflow-hidden relative group mx-auto">
+            <div class="projects-container relative h-[600px]">
+                <button class="nav-arrow left">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="var(--color-accent)" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                        <path d="M15 18l-6-6 6-6"></path>
+                    </svg>
+                </button>
+                <div class="projects-scroller flex justify-center">
+                    <div class="project-card active bg-[#111] rounded-xl overflow-hidden relative group">
                         <div class="absolute inset-0 bg-gradient-to-t from-[var(--color-bg)] to-transparent z-10 opacity-80"></div>
                         <div class="project-image w-full h-full">
                             <video autoplay muted loop playsinline class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500">
@@ -536,7 +626,13 @@
                             <a href="https://donnaai.dk/index.html" class="inline-block px-6 py-2 bg-transparent border-2 border-[var(--color-accent)] text-[var(--color-accent)] rounded-full hover:bg-[var(--color-accent)] hover:text-[var(--color-bg)] transition-all duration-200">View Project</a>
                         </div>
                     </div>
+                    <!-- Add more project-card divs here for additional projects -->
                 </div>
+                <button class="nav-arrow right">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="var(--color-accent)" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                        <path d="M9 18l6-6-6-6"></path>
+                    </svg>
+                </button>
             </div>
             <div class="text-center mt-16">
                 <a href="#" class="inline-block px-8 py-3 border-2 border-[var(--color-accent)] text-[var(--color-accent)] font-bold rounded-full hover:bg-[var(--color-accent)] hover:text-[var(--color-bg)] transition-all duration-200">View All Projects</a>
@@ -547,23 +643,36 @@
     <section id="blog" class="py-20 px-6 lg:px-12">
         <div class="blog-section max-w-3xl mx-auto">
             <h2 class="text-4xl font-bold mb-16 text-center">Some Thoughts</h2>
-            <div class="grid grid-cols-1 gap-8 place-items-center">
-                <div class="blog-card bg-[#111] rounded-lg overflow-hidden max-w-md">
-                    <div class="h-48 overflow-hidden">
-                        <img src="https://images.unsplash.com/photo-1498050107-5fef28a66643?ixlib=rb-4.0.3&auto=format&fit=crop&w=1470&q=80" 
-                             alt="Article 1" 
-                             class="w-full h-full object-cover hover:scale-105 transition-transform duration-500">
-                    </div>
-                    <div class="p-6">
-                        <div class="flex items-center space-x-2 mb-4">
-                            <span class="px-3 py-1 bg-[var(--color-accent)] text-[var(--color-bg)] rounded-full text-sm">Design</span>
-                            <span class="text-sm text-gray-400">June 15, 2023</span>
+            <div class="blog-container relative">
+                <button class="nav-arrow left">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="var(--color-accent)" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                        <path d="M15 18l-6-6 6-6"></path>
+                    </svg>
+                </button>
+                <div class="blog-scroller flex justify-center">
+                    <div class="blog-card active bg-[#111] rounded-lg overflow-hidden">
+                        <div class="h-48 overflow-hidden">
+                            <img src="https://images.unsplash.com/photo-1498050107-5fef28a66643?ixlib=rb-4.0.3&auto=format&fit=crop&w=1470&q=80" 
+                                 alt="Article 1" 
+                                 class="w-full h-full object-cover hover:scale-105 transition-transform duration-500">
                         </div>
-                        <h3 class="text-2xl font-bold mb-3">The Future of UI Design in 2023</h3>
-                        <p class="text-gray-400 mb-4">Exploring emerging trends and technologies that will shape user interfaces in the coming year.</p>
-                        <a href="/blog.html" class="text-[var(--color-accent)] font-medium hover:underline">Read More →</a>
+                        <div class="p-6">
+                            <div class="flex items-center space-x-2 mb-4">
+                                <span class="px-3 py-1 bg-[var(--color-accent)] text-[var(--color-bg)] rounded-full text-sm">Design</span>
+                                <span class="text-sm text-gray-400">June 15, 2023</span>
+                            </div>
+                            <h3 class="text-2xl font-bold mb-3">The Future of UI Design in 2023</h3>
+                            <p class="text-gray-400 mb-4">Exploring emerging trends and technologies that will shape user interfaces in the coming year.</p>
+                            <a href="/blog.html" class="text-[var(--color-accent)] font-medium hover:underline">Read More →</a>
+                        </div>
                     </div>
+                    <!-- Add more blog-card divs here for additional posts -->
                 </div>
+                <button class="nav-arrow right">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="var(--color-accent)" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                        <path d="M9 18l6-6-6-6"></path>
+                    </svg>
+                </button>
             </div>
             <div class="text-center mt-16">
                 <a href="#" class="inline-block px-8 py-3 border-2 border-[var(--color-accent)] text-[var(--color-accent)] font-bold rounded-full hover:bg-[var(--color-accent)] hover:text-[var(--color-bg)] transition-all duration-200">View All Articles</a>
@@ -871,36 +980,57 @@
             document.getElementById('progress-bar').style.width = scrollProgress + '%';
         });
 
-        // Projects horizontal scroll
-        const projectsScroller = document.querySelector('.projects-scroller');
+        // Arrow navigation for projects
         const projectCards = document.querySelectorAll('.project-card');
-        const projectWidth = projectCards[0].offsetWidth + 32;
+        let currentProjectIndex = 0;
 
-        gsap.to(projectsScroller, {
-            x: 0,
-            ease: 'none',
-            scrollTrigger: {
-                trigger: '.projects-container',
-                start: 'top top',
-                end: () => `+=${projectWidth}`,
-                scrub: 1,
-                pin: true,
-                invalidateOnRefresh: true
+        function updateProjectDisplay() {
+            projectCards.forEach((card, index) => {
+                card.classList.toggle('active', index === currentProjectIndex);
+            });
+        }
+
+        document.querySelector('.projects-container .nav-arrow.left').addEventListener('click', () => {
+            if (currentProjectIndex > 0) {
+                currentProjectIndex--;
+                updateProjectDisplay();
             }
         });
 
-        // Stat cards animation
-        gsap.from(".stat-card", {
-            scrollTrigger: {
-                trigger: ".stat-card",
-                start: "top 80%",
-                toggleActions: "play none none none"
-            },
-            y: 20,
-            opacity: 0,
-            duration: 0.5,
-            stagger: 0.1
+        document.querySelector('.projects-container .nav-arrow.right').addEventListener('click', () => {
+            if (currentProjectIndex < projectCards.length - 1) {
+                currentProjectIndex++;
+                updateProjectDisplay();
+            }
         });
+
+        // Arrow navigation for blog
+        const blogCards = document.querySelectorAll('.blog-card');
+        let currentBlogIndex = 0;
+
+        function updateBlogDisplay() {
+            blogCards.forEach((card, index) => {
+                card.classList.toggle('active', index === currentBlogIndex);
+            });
+        }
+
+        document.querySelector('.blog-container .nav-arrow.left').addEventListener('click', () => {
+            if (currentBlogIndex > 0) {
+                currentBlogIndex--;
+                updateBlogDisplay();
+            }
+        });
+
+        document.querySelector('.blog-container .nav-arrow.right').addEventListener('click', () => {
+            if (currentBlogIndex < blogCards.length - 1) {
+                currentBlogIndex++;
+                updateBlogDisplay();
+            }
+        });
+
+        // Initialize displays
+        updateProjectDisplay();
+        updateBlogDisplay();
 
         // Dinosaur Intro Script
         const counter = document.getElementById('counter');
