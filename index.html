@@ -415,36 +415,13 @@
             right: 10px;
         }
 
-        .projects-container {
-            position: relative;
-            width: 100%;
-            height: 600px;
-            overflow: hidden;
-            display: flex;
-            justify-content: center;
-            align-items: center;
+        .projects-section, .blog-section {
+            max-width: 3xl;
+            margin-left: auto;
+            margin-right: auto;
         }
 
-        .projects-scroller {
-            display: flex;
-            transition: transform 0.5s ease;
-        }
-
-        .project-card {
-            flex: 0 0 auto;
-            width: 100%;
-            max-width: 448px;
-            height: 100%;
-            opacity: 0;
-            transition: opacity 0.5s ease;
-            cursor: pointer;
-        }
-
-        .project-card.active {
-            opacity: 1;
-        }
-
-        .blog-container {
+        .projects-container, .blog-container {
             position: relative;
             width: 100%;
             overflow: hidden;
@@ -453,12 +430,12 @@
             align-items: center;
         }
 
-        .blog-scroller {
+        .projects-scroller, .blog-scroller {
             display: flex;
             transition: transform 0.5s ease;
         }
 
-        .blog-card {
+        .project-card, .blog-card {
             flex: 0 0 auto;
             width: 100%;
             max-width: 448px;
@@ -466,7 +443,7 @@
             transition: opacity 0.5s ease;
         }
 
-        .blog-card.active {
+        .project-card.active, .blog-card.active {
             opacity: 1;
         }
 
@@ -499,8 +476,6 @@
             }
             .project-card, .blog-card {
                 scroll-snap-align: center;
-            }
-            .project-card {
                 width: 90vw;
                 max-width: none;
             }
@@ -543,10 +518,10 @@
                         <span class="text-[var(--color-secondary)]">//</span> LOOKS LIKE YOU MIGHT HAVE LOST YOUR WAY ON THE INTERWEBS 
                     </p>
                     <p class="text-[var(--color-text)]">
-                        <span class="text-[var(--color-secondary)]">//</span> ANYWAY, I'M NIKOLAJ STORM PETERSEN, AND THIS IS MY PAGE
+                        <span class="text-[var(--color-secondary)]>//</span> ANYWAY, I'M NIKOLAJ STORM PETERSEN, AND THIS IS MY PAGE
                     </p>
                     <p class="text-[var(--color-text)]">
-                        <span class="text-[var(--color-secondary)]">//</span> LET ME ENTERTAIN YOU FOR A SEC ___/ ͘/
+                        <span class="text-[var(--color-secondary)]>//</span> LET ME ENTERTAIN YOU FOR A SEC ___/ ͘/
                         <br>  ͘  ͘  ͘  ͘  ͘  ͘  ͘  ͘  ͘  ͘  ͘   ͘  ͘  ͘   ͘ /.o  ͘o.\  ͘  ͘
                         <br>  ͘  ͘  ͘  ͘  ͘  ͘  ͘  ͘  ͘  ͘  ͘   ͘  ͘  ͘  ͘  \ ͘ ▽  ͘/ ͘  ͘  ͘ 
                         <br>  ͘  ͘  ͘  ͘  ͘  ͘  ͘  ͘  ͘  ͘  ͘  ͘  ͘   ͘ ȑ___/ ͘  ͘   \ ͘  ͘  ͘ 
@@ -629,34 +604,30 @@
     </nav>
 
     <section id="projects" class="py-20 px-6 lg:px-12">
-        <div class="max-w-6xl mx-auto">
-            <h2 class="text-4xl lg:text-6xl font-bold mb-16 text-center">Featured Project</h2>
-            <div class="projects-container relative h-[600px]">
+        <div class="projects-section max-w-3xl mx-auto">
+            <h2 class="text-4xl font-bold mb-16 text-center">Featured Project</h2>
+            <div class="projects-container relative">
                 <button class="nav-arrow left">
                     <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="var(--color-accent)" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
                         <path d="M15 18l-6-6 6-6"></path>
                     </svg>
                 </button>
                 <div class="projects-scroller flex justify-center">
-                    <a href="https://donnaai.dk/index.html" class="project-card active bg-[#111] rounded-xl overflow-hidden relative group">
-                        <div class="absolute inset-0 bg-gradient-to-t from-[var(--color-bg)] to-transparent z-10 opacity-80"></div>
-                        <div class="project-image w-full h-full">
-                            <video autoplay muted loop playsinline class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500">
+                    <a href="https://donnaai.dk/index.html" class="project-card active bg-[#111] rounded-lg overflow-hidden">
+                        <div class="h-48 overflow-hidden">
+                            <video autoplay muted loop playsinline class="w-full h-full object-cover hover:scale-105 transition-transform duration-500">
                                 <source src="/assets/donna-ai-demo.mp4" type="video/mp4">
                                 Your browser does not support the video tag. Here's a static image fallback: <img src="/assets/filter.png" alt="Donna AI Demo">
                             </video>
                         </div>
-                        <div class="absolute bottom-0 left-0 p-8 z-20">
-                            <h3 class="text-3xl font-bold mb-2">Donna AI Legal Assistant</h3>
-                            <p class="text-lg mb-4">An AI-powered assistant for Danish law, built with a robust backend and user-friendly frontend.</p>
-                            <div class="flex flex-wrap gap-2 mb-4">
+                        <div class="p-6">
+                            <div class="flex items-center space-x-2 mb-4">
                                 <span class="px-3 py-1 bg-[var(--color-accent)] text-[var(--color-bg)] rounded-full text-sm">Flask</span>
                                 <span class="px-3 py-1 bg-[var(--color-accent)] text-[var(--color-bg)] rounded-full text-sm">Python</span>
                                 <span class="px-3 py-1 bg-[var(--color-accent)] text-[var(--color-bg)] rounded-full text-sm">Pinecone</span>
-                                <span class="px-3 py-1 bg-[var(--color-accent)] text-[var(--color-bg)] rounded-full text-sm">Vertex AI</span>
-                                <span class="px-3 py-1 bg-[var(--color-accent)] text-[var(--color-bg)] rounded-full text-sm">OpenAI</span>
-                                <span class="px-3 py-1 bg-[var(--color-accent)] text-[var(--color-bg)] rounded-full text-sm">JavaScript</span>
                             </div>
+                            <h3 class="text-2xl font-bold mb-3">Donna AI Legal Assistant</h3>
+                            <p class="text-gray-400 mb-4">An AI-powered assistant for Danish law, built with a robust backend and user-friendly frontend.</p>
                         </div>
                     </a>
                     <!-- Add more project-card divs here for additional projects -->
