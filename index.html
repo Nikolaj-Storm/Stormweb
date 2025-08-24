@@ -432,11 +432,12 @@
 
         .project-card {
             flex: 0 0 auto;
-            width: 80vw;
-            max-width: 50vw;
+            width: 100%;
+            max-width: 448px;
             height: 100%;
             opacity: 0;
             transition: opacity 0.5s ease;
+            cursor: pointer;
         }
 
         .project-card.active {
@@ -498,6 +499,10 @@
             }
             .project-card, .blog-card {
                 scroll-snap-align: center;
+            }
+            .project-card {
+                width: 90vw;
+                max-width: none;
             }
         }
     </style>
@@ -633,7 +638,7 @@
                     </svg>
                 </button>
                 <div class="projects-scroller flex justify-center">
-                    <div class="project-card active bg-[#111] rounded-xl overflow-hidden relative group">
+                    <a href="https://donnaai.dk/index.html" class="project-card active bg-[#111] rounded-xl overflow-hidden relative group">
                         <div class="absolute inset-0 bg-gradient-to-t from-[var(--color-bg)] to-transparent z-10 opacity-80"></div>
                         <div class="project-image w-full h-full">
                             <video autoplay muted loop playsinline class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500">
@@ -652,9 +657,8 @@
                                 <span class="px-3 py-1 bg-[var(--color-accent)] text-[var(--color-bg)] rounded-full text-sm">OpenAI</span>
                                 <span class="px-3 py-1 bg-[var(--color-accent)] text-[var(--color-bg)] rounded-full text-sm">JavaScript</span>
                             </div>
-                            <a href="https://donnaai.dk/index.html" class="inline-block px-6 py-2 bg-transparent border-2 border-[var(--color-accent)] text-[var(--color-accent)] rounded-full hover:bg-[var(--color-accent)] hover:text-[var(--color-bg)] transition-all duration-200">View Project</a>
                         </div>
-                    </div>
+                    </a>
                     <!-- Add more project-card divs here for additional projects -->
                 </div>
                 <button class="nav-arrow right">
