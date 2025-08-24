@@ -104,6 +104,18 @@
       opacity: 1;
       transform: translateY(0);
     }
+    /* Hide all images except smal.png on mobile */
+    @media (max-width: 600px) {
+      .image, .image-small {
+        display: none;
+      }
+      .image[src="/assets/smal.png"] {
+        display: block;
+      }
+      .section .text {
+        width: 100%;
+      }
+    }
   </style>
 </head>
 <body>
@@ -118,7 +130,7 @@
     
     <img src="/assets/smal.png" alt="Large Image" class="image">
     
-    <div class="info">s
+    <div class="info">
       <div>
         <p>THE 7 DUMBEST WAYS OUR BRAINS SCREWS US OVER <br> AND HOW TO WIN BECAUSE OF IT</p>
       </div>
