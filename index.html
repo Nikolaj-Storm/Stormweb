@@ -213,7 +213,7 @@
             font-size: 16px;
             letter-spacing: 1px;
             transition: 0.5s;
-            border: 2px solid var(--color-text);
+            border: 2px solid var(--color-accent);
             box-sizing: border-box;
             box-shadow: inset 0 5px 10px rgba(0, 0, 0, 0.1);
             white-space: nowrap;
@@ -385,7 +385,6 @@
             60% { transform: translateX(-50%) translateY(-5px); }
         }
 
-        /* New styles for arrow navigation */
         .nav-arrow {
             position: absolute;
             top: 50%;
@@ -469,6 +468,38 @@
         .blog-card.active {
             opacity: 1;
         }
+
+        /* Updated button layout for responsiveness */
+        @media (max-width: 600px) {
+            .button-group {
+                flex-wrap: wrap;
+                justify-content: center;
+                gap: 1rem;
+            }
+            .button-group > a:nth-child(1),
+            .button-group > a:nth-child(2) {
+                margin-bottom: 1rem;
+            }
+            .button-3d {
+                width: 160px;
+            }
+        }
+
+        /* Hide navigation arrows and enable horizontal scrolling on mobile */
+        @media (max-width: 600px) {
+            .nav-arrow {
+                display: none;
+            }
+            .projects-scroller, .blog-scroller {
+                overflow-x: auto;
+                scroll-snap-type: x mandatory;
+                -webkit-overflow-scrolling: touch;
+                transition: none;
+            }
+            .project-card, .blog-card {
+                scroll-snap-align: center;
+            }
+        }
     </style>
 </head>
 <body class="antialiased relative overflow-hidden intro-active">
@@ -523,7 +554,7 @@
                         <span class="text-[var(--color-secondary)]">//</span> __//
                     </p>
                 </div>
-                <div class="mt-12 flex space-x-6 justify-center lg:flex lg:space-x-6 lg:justify-center">
+                <div class="mt-12 flex button-group space-x-6 justify-center lg:flex lg:space-x-6 lg:justify-center">
                     <a href="#projects" class="button-3d">
                         <span>> view_projects</span>
                         <span>> view_projects</span>
@@ -691,7 +722,7 @@
         <div class="max-w-4xl mx-auto">
             <h2 class="text-4xl font-bold mb-8 text-center">Consulting Services</h2>
             <div class="flex justify-center mb-12">
-                <a href="https://example.com/custom-consultation" class="consulting-package w-full max-w-sm">
+                <a href="mailto:nikolajstormpetersen@gmail.com?subject=Coffee%20Chat%20Request&body=I%20would%20like%20a%20quick%20coffee." class="consulting-package w-full max-w-sm">
                     <h3>Freebie</h3>
                     <p>Quick exploratory chat, to see if I can even help you</p>
                     <div class="price">Price => a Coffee</div>
@@ -699,7 +730,7 @@
                 </a>
             </div>
             <div class="text-center">
-                <a href="#" class="inline-block px-6 py-2 border border-orange-600 text-orange-600 font-medium rounded hover:bg-orange-600 hover:text-white">Email to Schedule</a>
+                <a href="mailto:nikolajstormpetersen@gmail.com?subject=Coffee%20Chat%20Request&body=I%20would%20like%20a%20quick%20coffee." class="inline-block px-6 py-2 border border-orange-600 text-orange-600 font-medium rounded hover:bg-orange-600 hover:text-white">Email to Schedule</a>
             </div>
         </div>
     </section>
